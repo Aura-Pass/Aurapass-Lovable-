@@ -34,3 +34,26 @@ export interface TicketType {
   sale_start: string;
   sale_end: string;
 }
+
+export interface Order {
+  id: string;
+  event_id: string;
+  user_id: string;
+  ticket_type_id: string;
+  quantity: number;
+  total_amount: number;
+  platform_fee: number;
+  status: "pending" | "confirmed" | "refunded" | "cancelled";
+  created_at: string;
+}
+
+export interface Payment {
+  id: string;
+  order_id: string;
+  amount: number;
+  currency: string;
+  provider: "paystack";
+  provider_reference: string;
+  status: "pending" | "success" | "failed";
+  paid_at: string;
+}
