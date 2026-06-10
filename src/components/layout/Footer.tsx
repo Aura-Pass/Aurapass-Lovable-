@@ -67,7 +67,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-[#E5E7EB] pt-6 md:flex-row md:items-center">
-          <p className="text-xs text-[#6B7280]">© 2025 AuraPass. All rights reserved.</p>
+          <p className="text-xs text-[#6B7280]">© 2026 AuraPass. All rights reserved.</p>
           <div className="flex items-center gap-3">
             <a aria-label="Twitter" href="#" className="rounded-md p-2 text-[#6B7280] hover:bg-white hover:text-[#D946EF] transition-colors">
               <Twitter className="h-4 w-4" />
