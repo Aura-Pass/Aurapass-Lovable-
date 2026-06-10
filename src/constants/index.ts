@@ -8,6 +8,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const EVENT_CATEGORIES = [
+  { slug: "party", label: "Party & Rave", icon: "🎉" },
   { slug: "music", label: "Music", icon: "🎵" },
   { slug: "tech", label: "Tech & Business", icon: "💼" },
   { slug: "food", label: "Food & Drink", icon: "🍽️" },
