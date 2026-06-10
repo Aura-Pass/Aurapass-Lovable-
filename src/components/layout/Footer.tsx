@@ -40,7 +40,7 @@ const COLUMNS: { title: string; links: { label: string; to: string }[] }[] = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#E5E7EB] bg-[#F9FAFB]">
+    <footer role="contentinfo" className="border-t border-[#E5E7EB] bg-[#F9FAFB]">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
         <div className="grid gap-10 md:grid-cols-6">
           <div className="md:col-span-2 space-y-3">
