@@ -100,4 +100,7 @@
     color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
   }
+  h1, h2 {
+    font-family: var(--font-heading);
+  }
 }
