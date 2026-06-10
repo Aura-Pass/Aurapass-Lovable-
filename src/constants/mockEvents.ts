@@ -2,6 +2,22 @@ import type { Event } from "@/types";
 
 export const MOCK_EVENTS: Event[] = [
   {
+    id: "7",
+    title: "Detty December Kickoff Party",
+    description: "Lagos's most anticipated end-of-year rave. DJ sets, live performances, open bar, and vibes that go all night.",
+    banner_url: "",
+    category: "Party & Rave",
+    venue: "Landmark Beach",
+    city: "Lagos",
+    date: "2026-12-05",
+    time: "21:00",
+    organizer_name: "Rave Republic NG",
+    min_price: 15000,
+    max_price: 80000,
+    is_free: false,
+    status: "published",
+  },
+  {
     id: "1",
     title: "Afro Nation Lagos 2026",
     description:
