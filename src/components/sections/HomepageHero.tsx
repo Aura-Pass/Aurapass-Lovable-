@@ -21,10 +21,10 @@ export function HomepageHero() {
       <div className="relative mx-auto max-w-7xl px-4 pt-16 pb-20 md:px-6 md:pt-24 md:pb-28">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-[32px] font-bold leading-tight tracking-tight text-[#111827] md:text-5xl">
-            Discover & Book Events Across Nigeria
+            Explore the Raves. Book the Tickets. Enjoy the Experience.
           </h1>
           <p className="mt-4 text-base text-[#6B7280] md:text-lg">
-            Find concerts, conferences, festivals, and more. Get your tickets in seconds.
+            Discover the biggest events across Nigeria, book tickets instantly, and create memories that last.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button asChild size="lg" variant="primary">
