@@ -25,6 +25,7 @@ export function Navbar() {
             <Link
               key={l.label}
               to={l.to}
+              activeProps={{ className: "text-[#D946EF] font-semibold" }}
               className="text-sm font-medium text-[#111827] transition-colors hover:text-[#D946EF]"
             >
               {l.label}
