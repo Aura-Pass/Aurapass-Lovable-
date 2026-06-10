@@ -46,7 +46,7 @@ export function HomepageHero() {
               placeholder="Search events, artists, venues..."
               className="flex-1 bg-transparent px-4 py-3 text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none"
             />
-            <div className="hidden border-l border-[#E5E7EB] sm:block">
+            <div className="block border-l border-[#E5E7EB]">
               <select
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
