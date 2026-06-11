@@ -13,29 +13,13 @@ export function EventCategories() {
           </p>
         </div>
 
-        <div className="-mx-4 overflow-x-auto px-4 md:hidden">
-          <div className="flex gap-3 pb-2" style={{ width: "max-content" }}>
-            {EVENT_CATEGORIES.map((c) => (
-              <button
-                key={c.slug}
-                type="button"
-                className="group flex shrink-0 items-center gap-3 rounded-xl border border-[#E5E7EB] bg-white px-4 py-4 text-left transition-all duration-200 hover:border-[#D946EF] hover:bg-[#FDF4FF]"
-              >
-                <span className="text-2xl">{c.icon}</span>
-                <span className="text-sm font-semibold text-[#111827] group-hover:text-[#D946EF]">
-                  {c.label}
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="hidden gap-3 md:grid md:grid-cols-3 lg:grid-cols-5">
+        <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none md:grid md:grid-cols-4 md:overflow-visible md:pb-0">
           {EVENT_CATEGORIES.map((c) => (
             <button
               key={c.slug}
               type="button"
-              className="group flex items-center gap-3 rounded-xl border border-[#E5E7EB] bg-white px-4 py-4 text-left transition-all duration-200 hover:border-[#D946EF] hover:bg-[#FDF4FF]"
+              className="group flex shrink-0 items-center gap-3 rounded-xl border border-[#E5E7EB] bg-white px-4 py-4 text-left transition-all duration-200 hover:border-[#D946EF] hover:bg-[#FDF4FF] md:w-auto"
+              style={{ minWidth: "160px" }}
             >
               <span className="text-2xl">{c.icon}</span>
               <span className="text-sm font-semibold text-[#111827] group-hover:text-[#D946EF]">

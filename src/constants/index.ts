@@ -19,4 +19,4 @@ export const EVENT_CATEGORIES = [
   { slug: "gaming", label: "Gaming", icon: "🎮" },
 ] as const;
 
-export const CITIES = ["Lagos", "Abuja", "Port Harcourt", "Others"] as const;
+export const CITIES = ["Lagos", "Ilorin", "Abuja", "Port Harcourt", "Others"] as const;
