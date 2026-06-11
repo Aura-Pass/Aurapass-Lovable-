@@ -22,7 +22,7 @@ function ForgotPasswordPage() {
     if (!email.trim()) return;
     setSubmitting(true);
     await supabase.auth.resetPasswordForEmail(email.trim(), {
-      redirectTo: `${window.location.origin}/login`,
+      redirectTo: `${window.location.origin}/reset-password`,
     });
     setSubmitting(false);
     setSubmitted(true);
