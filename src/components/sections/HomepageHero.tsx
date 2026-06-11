@@ -15,16 +15,16 @@ export function HomepageHero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 60% at 50% 0%, rgba(217,70,239,0.10) 0%, rgba(217,70,239,0.03) 40%, rgba(255,255,255,0) 75%)",
+          "radial-gradient(60% 60% at 50% 0%, rgba(217,70,239,0.20) 0%, rgba(217,70,239,0.08) 40%, rgba(255,255,255,0) 75%)",
         }}
       />
       <div className="relative mx-auto max-w-7xl px-4 pt-16 pb-20 md:px-6 md:pt-24 md:pb-28">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-[32px] font-bold leading-tight tracking-tight text-[#111827] md:text-5xl">
-            Explore the Raves. Book the Tickets. Enjoy the Experience.
+            Explore the Raves. Enjoy the Experience.
           </h1>
           <p className="mt-4 text-base text-[#6B7280] md:text-lg">
-            Discover the biggest events across Nigeria, book tickets instantly, and create memories that last.
+            Discover the biggest events across Nigeria and create memories.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button asChild size="lg" variant="primary">
@@ -46,18 +46,6 @@ export function HomepageHero() {
               placeholder="Search events, artists, venues..."
               className="flex-1 bg-transparent px-4 py-3 text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none"
             />
-            <div className="block border-l border-[#E5E7EB]">
-              <select
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                className="h-full bg-white px-3 text-sm text-[#111827] focus:outline-none"
-                aria-label="City"
-              >
-                {CITIES.map((c) => (
-                  <option key={c} value={c}>{c}</option>
-                ))}
-              </select>
-            </div>
             <button
               type="submit"
               aria-label="Search"
