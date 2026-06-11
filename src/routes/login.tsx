@@ -1,9 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState, type FormEvent } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { Logo } from "@/components/layout/Logo";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/lib/supabase";
 
 export const Route = createFileRoute("/login")({
   head: () => ({ meta: [{ title: "Log in — AuraPass" }] }),
@@ -11,10 +13,51 @@ export const Route = createFileRoute("/login")({
 });
 
 function LoginPage() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setError(null);
+
+    if (!email.trim() || !password) {
+      setError("Please enter your email and password.");
+      return;
+    }
+
+    setSubmitting(true);
+    const { data, error: signInError } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    });
+
+    if (signInError || !data.user) {
+      setSubmitting(false);
+      setError("Invalid email or password");
+      return;
+    }
+
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("id", data.user.id)
+      .maybeSingle();
+
+    setSubmitting(false);
+
+    const role = (profile?.role as "attendee" | "organiser" | "admin" | undefined) ?? "attendee";
+    if (role === "organiser") navigate({ to: "/dashboard/organiser" });
+    else if (role === "admin") navigate({ to: "/dashboard/admin" });
+    else navigate({ to: "/dashboard/attendee" });
+  }
+
   return (
     <PageWrapper>
       <div className="flex items-center justify-center bg-[#F9FAFB] px-4 py-16">
-        <Card className="w-full max-w-md p-8">
+        <Card className="w-full max-w-md p-8" style={{ borderRadius: 12 }}>
           <div className="flex justify-center">
             <Logo className="text-2xl" />
           </div>
@@ -23,16 +66,37 @@ function LoginPage() {
             Log in to continue to your account.
           </p>
 
-          <form className="mt-6 space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <Input label="Email" type="email" placeholder="you@example.com" />
-            <Input label="Password" type="password" placeholder="••••••••" />
-            <Button type="submit" variant="primary" size="lg" className="w-full">
+          <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+            <Input
+              label="Email"
+              type="email"
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <Input
+              label="Password"
+              type="password"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+
+            {error ? (
+              <p className="rounded-md border border-[#FCA5A5] bg-[#FEF2F2] px-3 py-2 text-sm text-[#B91C1C]">
+                {error}
+              </p>
+            ) : null}
+
+            <Button type="submit" variant="primary" size="lg" className="w-full" loading={submitting}>
               Log In
             </Button>
           </form>
 
           <div className="mt-4 text-center">
-            <Link to="/" className="text-sm font-medium text-[#D946EF] hover:underline">
+            <Link to="/forgot-password" className="text-sm font-medium text-[#D946EF] hover:underline">
               Forgot password?
             </Link>
           </div>
