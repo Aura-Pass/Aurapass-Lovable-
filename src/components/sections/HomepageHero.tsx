@@ -2,11 +2,10 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CITIES } from "@/constants";
 
 export function HomepageHero() {
-  const [city, setCity] = useState<string>("Lagos");
   const [query, setQuery] = useState<string>("");
+
 
   return (
     <section className="relative overflow-hidden bg-white">
